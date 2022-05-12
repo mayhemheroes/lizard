@@ -1,6 +1,5 @@
-project: rnshah9/lizard
+project: rnshah9/mayhem-lizard
 target: lizard
-image: ghcr.io/rnshah9/playground:lizard
 
 cmds:
   - cmd: /lizard/programs/lizard @@
