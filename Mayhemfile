@@ -1,0 +1,7 @@
+project: rnshah9/lizard
+target: lizard
+image: ghcr.io/rnshah9/playground:lizard
+
+cmds:
+  - cmd: /lizard/programs/lizard @@
+    # filepath: /test.c
