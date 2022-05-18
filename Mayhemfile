@@ -3,4 +3,3 @@ target: lizard
 
 cmds:
   - cmd: /lizard/programs/lizard @@
-    # filepath: /test.c
