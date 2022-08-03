@@ -2,4 +2,4 @@ project: lizard
 target: lizard
 
 cmds:
-  - cmd: /lizard/programs/lizard @@
+  - cmd: /install/usr/local/bin/lizard @@
