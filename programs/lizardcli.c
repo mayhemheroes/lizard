@@ -201,7 +201,7 @@ static int usage_longhelp(const char* exeName)
     return 0;
 }
 
-static int version_info()
+static int version_info(void)
 {
     fprintf(stdout,
            PROGRAM_NAME " " PROGRAM_VERSION "\n"
