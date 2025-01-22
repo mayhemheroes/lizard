@@ -397,3 +397,59 @@ jobs:
       fullbench.exe -i1 fullbench.exe || exit 1
 
     displayName: 'Run tests for $(arch) architecture'
+
+
+- job:
+  pool:
+    vmImage: 'windows-2022'
+
+  strategy:
+    matrix:
+      Visual Studio 2019 / 2022 Release 64-bit [Windows Server 2022]:
+        buildConfiguration: 'Release'
+        buildPlatform: 'x64'
+
+      Visual Studio 2019 / 2022 Release 32-bit [Windows Server 2022]:
+        buildConfiguration: 'Release'
+        buildPlatform: 'Win32'
+
+      Visual Studio 2019 / 2022 Debug 64-bit [Windows Server 2022]:
+        buildConfiguration: 'Debug'
+        buildPlatform: 'x64'
+
+      Visual Studio 2019 / 2022 Debug 32-bit [Windows Server 2022]:
+        buildConfiguration: 'Debug'
+        buildPlatform: 'Win32'
+
+  steps:
+  - task: VSBuild@1
+    inputs:
+      solution: 'visual\VS2010\lizard.sln'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
+      msbuildArgs: '/t:Clean,Build /verbosity:minimal /p:PlatformToolset=v142'
+    displayName: 'Build for platformToolset=v142 for $(buildPlatform) $(buildConfiguration)'
+
+  - task: VSBuild@1
+    inputs:
+      solution: 'visual\VS2010\lizard.sln'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
+      msbuildArgs: '/t:Clean,Build /verbosity:minimal /p:PlatformToolset=v143'
+    displayName: 'Build for platformToolset=v143 for $(buildPlatform) $(buildConfiguration)'
+
+  - script: |
+      echo Running a build for $(buildPlatform) $(buildConfiguration)
+      CD visual\VS2010\bin\%buildPlatform%_%buildConfiguration%
+      file lizard.exe
+      lizard.exe -h
+      lizard.exe --version
+      lizard.exe -b1e4 lizard.exe || exit 1
+      lizard.exe -i1b lizard.exe || exit 1
+      lizard.exe -i1b5 lizard.exe || exit 1
+      lizard.exe -i1b10 lizard.exe || exit 1
+      lizard.exe -i1b15 lizard.exe || exit 1
+      echo ------- lizard tested -------
+      fullbench.exe -i1 fullbench.exe || exit 1
+
+    displayName: 'Run tests for $(buildPlatform) $(buildConfiguration)'
