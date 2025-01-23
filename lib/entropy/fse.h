@@ -19,6 +19,21 @@ extern "C" {
 #ifndef FSE_H
 #define FSE_H
 
+/* *** Solve definition conflicts between zstd and NGE library *** */
+#define FSE_isError NGEF_isError
+#define FSE_versionNumber NGEF_versionNumber
+#define FSE_getErrorName NGEF_getErrorName
+#define FSE_readNCount NGEF_readNCount
+#define FSE_buildCTable_wksp NGEF_buildCTable_wksp
+#define FSE_NCountWriteBound NGEF_NCountWriteBound
+#define FSE_writeNCount NGEF_writeNCount
+#define FSE_optimalTableLog_internal NGEF_optimalTableLog_internal
+#define FSE_optimalTableLog NGEF_optimalTableLog
+#define FSE_normalizeCount NGEF_normalizeCount
+#define FSE_buildCTable_rle NGEF_buildCTable_rle
+#define FSE_compress_usingCTable NGEF_compress_usingCTable
+#define FSE_compressBound NGEF_compressBound
+
 
 /*-*****************************************
 *  Dependencies

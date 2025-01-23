@@ -16,6 +16,13 @@
 /* --- dependencies --- */
 #include <stddef.h>   /* size_t */
 
+/* *** Solve definition conflicts between zstd and NGE library *** */
+#define HIST_isError NGES_isError
+#define HIST_count_simple NGES_count_simple
+#define HIST_countFast_wksp NGES_countFast_wksp
+#define HIST_countFast NGES_countFast
+#define HIST_count_wksp NGES_count_wksp
+#define HIST_count NGES_count
 
 /* --- simple histogram functions --- */
 

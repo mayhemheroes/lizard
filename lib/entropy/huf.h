@@ -19,6 +19,33 @@ extern "C" {
 #ifndef HUF_H_298734234
 #define HUF_H_298734234
 
+/* *** Solve definition conflicts between zstd and NGE library *** */
+#define HUF_optimalTableLog NGEH_optimalTableLog
+#define HUF_readCTable NGEH_readCTable
+#define HUF_buildCTable_wksp NGEH_buildCTable_wksp
+#define HUF_estimateCompressedSize NGEH_estimateCompressedSize
+#define HUF_validateCTable NGEH_validateCTable
+#define HUF_compressBound NGEH_compressBound
+#define HUF_compress1X_usingCTable NGEH_compress1X_usingCTable
+#define HUF_compress4X_usingCTable NGEH_compress4X_usingCTable
+#define HUF_compress1X_repeat NGEH_compress1X_repeat
+#define HUF_compress4X_repeat NGEH_compress4X_repeat
+#define HUF_readDTableX1_wksp NGEH_readDTableX1_wksp
+#define HUF_decompress1X1_DCtx_wksp NGEH_decompress1X1_DCtx_wksp
+#define HUF_readDTableX2_wksp NGEH_readDTableX2_wksp
+#define HUF_decompress1X2_DCtx_wksp NGEH_decompress1X2_DCtx_wksp
+#define HUF_decompress1X_usingDTable NGEH_decompress1X_usingDTable
+#define HUF_decompress4X_usingDTable NGEH_decompress4X_usingDTable
+#define HUF_selectDecoder NGEH_selectDecoder
+#define HUF_decompress4X_hufOnly_wksp NGEH_decompress4X_hufOnly_wksp
+#define HUF_decompress1X_DCtx_wksp NGEH_decompress1X_DCtx_wksp
+#define HUF_compress NGEH_compress
+#define HUF_isError NGEH_isError
+#define HUF_decompress NGEH_decompress
+#define HUF_getErrorName NGEH_getErrorName
+#define HUF_readStats NGEH_readStats
+
+
 /* *** Dependencies *** */
 #include <stddef.h>    /* size_t */
 
